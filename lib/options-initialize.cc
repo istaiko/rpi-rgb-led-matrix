@@ -430,7 +430,7 @@ bool RGBMatrix::Options::Validate(std::string *err_in) const {
   std::string scratch;
   std::string *err = err_in ? err_in : &scratch;
   bool success = true;
-  if (rows < 8 || rows > 64 || rows % 2 != 0) {
+  if (rows < 4 || rows > 64 || rows % 2 != 0) { // https://github.com/hzeller/rpi-rgb-led-matrix/issues/527
     err->append("Invalid number or rows per panel (--led-rows). "
                 "Should be in range of [8..64] and divisible by 2.\n");
     success = false;
